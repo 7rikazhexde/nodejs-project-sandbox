@@ -10,10 +10,18 @@ An experimental Node.js project to test out various tools.
 
 ```bash
 .
-├── config.js          # Configuration settings
-├── package.json       # Node.js project definition
-├── sample.js          # Main implementation
-└── test.js            # Test implementation
+├── package.json                # Node.js project definition and dependencies
+├── package-lock.json           # Locked versions of dependencies
+├── src/                        # Source code directory
+│   ├── config/                 # Configuration related files
+│   │   ├── index.js            # Configuration entry point
+│   │   └── paths.js            # Path definitions and resolution
+│   ├── utils/                  # Utility functions
+│   │   └── jsonParser.js       # JSON parsing implementation
+│   └── index.js                # Application entry point
+└── tests/                      # Test files directory
+    └── utils/                  # Tests for utility functions
+        └── jsonParser.test.js  # Tests for JSON parser
 ```
 
 ## Setup
@@ -70,20 +78,11 @@ Plaese create `.github/workflows/nodejs_project_matrix.json`
 
 ```json
 {
-    "os": [
-        "ubuntu-latest",
-        "windows-latest",
-        "macos-latest"
-    ],
-    "versions": {
-        "nodejs": [
-            "16",
-            "18",
-            "20",
-            "22"
-        ]
-    },
-    "ghpages_branch": "ghgapes"
+  "os": ["ubuntu-latest", "windows-latest", "macos-latest"],
+  "versions": {
+    "nodejs": ["16", "18", "20", "22"]
+  },
+  "ghpages_branch": "ghgapes"
 }
 ```
 

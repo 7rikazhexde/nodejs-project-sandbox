@@ -1,4 +1,4 @@
-# Node.js Example for json2vars-setter
+# nodejs-project-sandbox
 
 An experimental Node.js project to test out various tools.
 

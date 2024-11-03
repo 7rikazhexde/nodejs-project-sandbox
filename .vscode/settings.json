@@ -3,6 +3,28 @@
         // glob pattern settings to exclude files and folders
         // Explorer determines which files and folders to show or hide based on this setting. (true is hidden)
         // Display the .git folder
-        "**/.git": false
-    }
+        "**/.git": false,
+        "**/node_modules": true,
+        "**/dist": true
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Prettierをデフォルトのフォーマッターとして使用
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "javascript.validate.enable": false, // ESLintでのチェックに一任するためにVSCodeのJavaScriptバリデーションを無効化
+    "typescript.validate.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit" // ESLintによるすべての修正を保存時に実行
+    },
+    "files.insertFinalNewline": true, // ファイルの最後に改行を追加
+    "prettier.singleQuote": true, // シングルクオートを使用
+    "prettier.trailingComma": "es5" // ES5スタイルで末尾のカンマを追加
 }

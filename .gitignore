@@ -3,7 +3,7 @@ node_modules/
 #.package-lock.json
 
 # VS Code-specific files
-.vscode/
+#.vscode/
 
 # IDE files (JetBrains, CLion, etc.)
 .idea/

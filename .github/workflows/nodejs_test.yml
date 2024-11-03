@@ -1,0 +1,52 @@
+# .github/workflows/nodejs_test.yml
+# CI (Continuous Integration) workflow for Node.js projects
+# This workflow runs tests on multiple OS and Node.js versions to ensure cross-platform compatibility
+# It executes on every push to main and all pull requests
+
+name: Node.js CI
+
+# Workflow trigger configuration
+on:
+  push:
+    branches:
+      - main  # Triggered on pushes to main branch
+  pull_request:  # Triggered on all pull requests
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # Matrix configuration for test environments
+        os: [ubuntu-latest, windows-latest, macos-latest]  # Test on Linux, Windows, and macOS
+        node-version: ["16", "18", "20", "22"]  # Test across multiple Node.js versions based on package.json requirements
+
+    steps:
+      # Step 1: Check out repository code
+      - name: Check out code
+        uses: actions/checkout@v4.2.2
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          # Enable caching of npm dependencies
+          cache: 'npm'
+
+      # Step 3: Display Node.js and npm versions
+      - name: Display Node.js version
+        run: |
+          node --version
+          npm --version
+
+      # Step 4: Install dependencies
+      # Using 'npm ci' for clean installs in CI environment
+      # It's faster and more reliable than 'npm install'
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 5: Run tests
+      # Using the test script defined in package.json
+      - name: Run tests
+        run: npm test

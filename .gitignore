@@ -1,0 +1,20 @@
+# nodejs
+node_modules/
+#.package-lock.json
+
+# VS Code-specific files
+.vscode/
+
+# IDE files (JetBrains, CLion, etc.)
+.idea/
+*.iml
+
+# MacOS-specific files
+.DS_Store
+
+# Linux-specific files
+*~
+
+# Windows-specific files
+Thumbs.db
+desktop.ini

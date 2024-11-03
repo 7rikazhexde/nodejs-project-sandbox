@@ -2,13 +2,13 @@
   "name": "nodejs-project-sandbox",
   "version": "1.0.0",
   "description": "An experimental Node.js project to test out various tools.",
-  "main": "sample.js",
+  "main": "src/index.js",
   "engines": {
     "node": ">=16.0.0"
   },
   "scripts": {
     "test": "jest",
-    "start": "node sample.js"
+    "start": "node src/index.js"
   },
   "keywords": [
     "github-actions",
